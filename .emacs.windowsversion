@@ -1,4 +1,3 @@
-
 ;; windows .emacs file
 ;; zenburn theme
 ;;(load-file "~/.emacs.d/theme/ample-zen-theme.el")
@@ -11,34 +10,79 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(TeX-PDF-mode t)
- '(custom-safe-themes (quote ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" default)))
+; '(custom-safe-themes
+ ;  (quote
+  ;  ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" default)))
+ '(delete-selection-mode t)
+ '(ido-enable-flex-matching t)
+ '(ido-mode (quote both) nil (ido))
+ '(initial-scratch-message nil)
  '(ispell-program-name "aspell")
- '(setq tex-command))
-
-
+ '(recentf-menu-before nil)
+ '(recentf-mode t)
+ '(setq tex-command)
+ '(shift-select-mode nil))
     (tool-bar-mode -1)
 
-;; auto-complete
-(add-to-list 'load-path "~/.emacs.d/")
+;;var load-path : path container
+;; To add a single directory to the front of your ‘load-path’ (add-to-list 'load-path "~/.emacs.d/lisp/")
+
+
+;;; auto-complete package
+(add-to-list 'load-path "/.emacs.d/auto-complete/")
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
+(add-to-list 'ac-dictionary-directories "/.emacs.d/auto-complete/ac-dict")
 (ac-config-default)
 
+;;htmlize 
+(add-to-list 'load-path "/.emacs.d/htmlize")
 
 
-;; activation reftex
-  (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+;; web-beautify
+(add-to-list 'load-path "/.emacs.d/web-beautify/")
+(require 'web-beautify) ;; Not necessary if using ELPA package
+(eval-after-load 'js2-mode
+  '(define-key js2-mode-map (kbd "C-c b") 'web-beautify-js))
+;; Or if you're using 'js-mode' (a.k.a 'javascript-mode')
+(eval-after-load 'js
+  '(define-key js-mode-map (kbd "C-c b") 'web-beautify-js))
 
+(eval-after-load 'json-mode
+  '(define-key json-mode-map (kbd "C-c b") 'web-beautify-js))
 
+(eval-after-load 'sgml-mode
+  '(define-key html-mode-map (kbd "C-c b") 'web-beautify-html))
 
-;; ispell dicionnaire french
-(setq ispell-dictionary "french")
+(eval-after-load 'css-mode
+  '(define-key css-mode-map (kbd "C-c b") 'web-beautify-css))
 
+(eval-after-load 'js2-mode
+  '(add-hook 'js2-mode-hook
+             (lambda ()
+               (add-hook 'before-save-hook 'web-beautify-js-buffer t t))))
 
+;; Or if you're using 'js-mode' (a.k.a 'javascript-mode')
+(eval-after-load 'js
+  '(add-hook 'js-mode-hook
+             (lambda ()
+               (add-hook 'before-save-hook 'web-beautify-js-buffer t t))))
 
+(eval-after-load 'json-mode
+  '(add-hook 'json-mode-hook
+             (lambda ()
+               (add-hook 'before-save-hook 'web-beautify-js-buffer t t))))
 
+(eval-after-load 'sgml-mode
+  '(add-hook 'html-mode-hook
+             (lambda ()
+               (add-hook 'before-save-hook 'web-beautify-html-buffer t t))))
 
-;; ac-math
+(eval-after-load 'css-mode
+  '(add-hook 'css-mode-hook
+             (lambda ()
+               (add-hook 'before-save-hook 'web-beautify-css-buffer t t))))
+
+;; ac-math package
 (require 'ac-math)
 
 (add-to-list 'ac-modes 'latex-mode)   ; make auto-complete aware of `latex-mode`
@@ -50,18 +94,32 @@
 
 (add-hook 'latex-mode-hook 'ac-latex-mode-setup)
 
+;; httpd
+(add-to-list 'load-path "/.emacs.d/simple-httpd/")
+(require 'simple-httpd)
+(setq httpd-root "Users/anouarattn/Dropbox/project")
 
+;; js2-mode
+(add-to-list 'load-path "/.emacs.d/js2-mode/")
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+
+
+
+;;skewer-mode Live web development in Emacs
+(add-to-list 'load-path "/.emacs.d/skewer-mode-master/")
+(require 'skewer-mode)
+
+
+
+;; impatient mode
+(add-to-list 'load-path "~/.emacs.d/impatient-mode")
+(require 'impatient-mode)
 
 ;; hide GNU emacs message
 (setq inhibit-startup-message t)
 
 
-
-
-;; add yasnippet required from auto-complete-auctex
-(add-to-list 'load-path   "/.emacs.d/yasnippet/yasnippet")
-(require 'yasnippet)
-(yas-global-mode 1)
 
 
 
@@ -76,8 +134,93 @@
 
 
 ;; melpa repo
-(when (>= emacs-major-version 24)
-  (require 'package)
+(require 'package)
   (package-initialize)
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-  )
+ 
+
+
+;; yasnippet
+(add-to-list 'load-path "/.emacs.d/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
+
+; undo tree
+(add-to-list 'load-path "/.emacs.d/undo-tree")
+
+(require 'undo-tree)
+(global-undo-tree-mode 1)
+
+(defalias 'redo 'undo-tree-redo)
+(global-set-key (kbd "C-z") 'undo) ; 【Ctrl+z】
+
+(global-set-key (kbd "C-S-z") 'redo) ; 【Ctrl+Shift+z】;  Mac style
+
+(global-set-key (kbd "C-y") 'redo) ; 【Ctrl+y】; Microsoft Windows style
+
+
+;; bip off in windows
+ (setq ring-bell-function 'ignore)
+
+;; wheel mouse scroll
+(mouse-wheel-mode t)
+
+;; f1 f2 f3 copy cut past
+(defun xah-copy-line-or-region ()
+  "Copy current line, or text selection.
+When `universal-argument' is called first, copy whole buffer (but respect `narrow-to-region')."
+  (interactive)
+  (let (p1 p2)
+    (if (null current-prefix-arg)
+        (progn (if (use-region-p)
+                   (progn (setq p1 (region-beginning))
+                          (setq p2 (region-end)))
+                 (progn (setq p1 (line-beginning-position))
+                        (setq p2 (line-end-position)))))
+      (progn (setq p1 (point-min))
+             (setq p2 (point-max))))
+    (kill-ring-save p1 p2)))
+(defun xah-cut-line-or-region ()
+  "Cut current line, or text selection.
+When `universal-argument' is called first, cut whole buffer (but respect `narrow-to-region')."
+  (interactive)
+  (let (p1 p2)
+    (if (null current-prefix-arg)
+        (progn (if (use-region-p)
+                   (progn (setq p1 (region-beginning))
+                          (setq p2 (region-end)))
+                 (progn (setq p1 (line-beginning-position))
+                        (setq p2 (line-beginning-position 2)))))
+      (progn (setq p1 (point-min))
+             (setq p2 (point-max))))
+    (kill-region p1 p2)))
+(global-set-key (kbd "<f2>") 'xah-cut-line-or-region) ; cut
+(global-set-key (kbd "<f1>") 'xah-copy-line-or-region) ; copy
+(global-set-key (kbd "C-v") 'yank) ; paste
+
+;;electric-pair-mode. When on, typing any left bracket automatically insert the right matching bracket.
+(electric-pair-mode t)
+;; make electric-pair-mode work on more brackets
+(setq electric-pair-pairs '(
+                            (?\" . ?\")
+                            (?\{ . ?\})
+                            ) )
+
+
+;; have matching parenthesis highlighted
+(show-paren-mode 1) ; turn on paren match highlighting
+(setq show-paren-style 'parenthesis) ; highlight entire bracket expression(show-paren-mode 1) ; turn on paren match highlighting (setq show-paren-style ') ; highlight just brackets
+
+
+
+; css view color
+(add-to-list 'load-path "/.emacs.d/csscolorview")
+(require 'rainbow-mode)
+(add-hook 'css-mode-hook 'my-css-mode-hook)
+(defun my-css-mode-hook ()
+  (rainbow-mode 1))
+
+; column-number-mode
+(column-number-mode 1)
+
+

@@ -1,0 +1,71 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("c:/Users/anouarattn/Dropbox/project/blog/" . "EdgeReflowProject_export/")
+ ("c:/Users/anouarattn/Dropbox/project/" . "blog/")
+ ("c:/Users/anouarattn/Dropbox/project/blog/EdgeReflowProject_export/" . "css/")
+ ("c:/Users/anouarattn/Dropbox/" . "project/")
+ ("c:/Users/anouarattn/" . "Dropbox/")
+ ("c:/Users/" . "anouarattn/")
+ ("c:/" . "Users/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "c:/Users/anouarattn/Dropbox/project/blog/EdgeReflowProject_export/css/"
+ "c:/"
+ "c:/Users/anouarattn/Dropbox/info/"
+ "c:/.emacs.d/CopyLineIfNoSelectAlsoCut/"
+ "c:/.emacs.d/"
+ "c:/Users/anouarattn/Dropbox/project/blog/EdgeReflowProject_export/"
+ "c:/Users/anouarattn/Dropbox/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "index.css"
+ ".emacs"
+ "post.css"
+ "emacs_commands.txt"
+ "file.el"
+ "CopyLineIfNoSelectAlsoCut"
+ "post"
+ "postcontentbar.css"
+ "post.html"
+ ".dropbox"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("c:/Users/anouarattn/Dropbox/project/blog/EdgeReflowProject_export/css/" (21528 29082 0 0) "postcontentbar.css~" "postcontentbar.css" "post.css~" "post.css" "index.css~" "index.css" "header.css" "goodfont.css" "footer.css~" "footer.css" "../" "./")
+
+ ("c:/Users/anouarattn/Dropbox/info/" (21527 43754 0 0) "sublime.txt" "pass.txt" "mysqlcommand.txt" "myconfig/" "menarawifiuserpass.txt" "intellij.txt" "idée.txt~" "idée.txt" "hikam.txt" "formationsciencedirect.txt" "farManager.txt" "emacs_commands.txt~" "emacs_commands.txt" "conemu.txt~" "conemu.txt" "Certificate_BAKRI Anouar.pdf" "bd.zip" "../" "./")
+
+ ("c:/Program Files (x86)/" (21527 6305 0 0) "XviD/" "XKeymacs/" "x264/" "WinPcap/" "Windows Sidebar/" "Windows Portable Devices/" "Windows Photo Viewer/" "Windows NT/" "Windows Mail/" "Windows Live/" "Windows Defender/" "VMware/" "VideoLAN/" "Universal Extractor/" "Universal Document Converter/" "Uninstall Information/" "UltraISO/" "Temp/" "TechSmith/" "TeamViewer/" "SystemRequirementsLab/" "Sybase/" "SumatraPDF/" "Spotflux/" "Sparx Systems/" "SopCast/" "Skype/" "SABnzbd/" "Robomongo/" "Reference Assemblies/" "Realtek/" "QuickTime/" "PicPick/" "Paltalk Messenger/" "Opera/" "Notepad++/" "netcut/" "Net Tools/" "Nero/" "MySQL/" "My Connection/" "MSXML 4.0/" "MSBuild/" "Mozilla Firefox/" "Microsoft.NET/" "Microsoft Visual Studio 9.0/" "Microsoft Visual Studio 10.0/" "Microsoft Synchronization Services/" "Microsoft SQL Server Compact Edition/" "Microsoft SQL Server/" "Microsoft Silverlight/" "Microsoft Security Client/" "Microsoft SDKs/" "Microsoft Office/" "Microsoft ASP.NET/" "Microsoft Analysis Services/" "Microsoft/" "MAGIX/" "Macaw/" "K-Lite Codec Pack/" "JGoodies/" "JetBrains/" "Java/" "Internet Explorer/" "Internet Download Manager/" "Intel Corporation/" "Intel/" "InstallShield Installation Information/" "IIS/" "GUM924F.tmp/" "Google/" "Git/" "GetFLV2/" "GetFLV/" "GetData/" "Gabest/" "Foxit Software/" "Ffmpeg For Audacity/" "emacs-24.3-bin-i386/" "Driver-Soft/" "desktop.ini" "Common Files/" "CodeMeter/" "Cisco Packet Tracer 6.0.1/" "Cisco/" "Brackets/" "AVS4YOU/" "AviSynth 2.5/" "AVI ReComp/" "AutoIt3/" "Auralog/" "Audacity/" "Aspell/" "Arduino/" "AOMEI Partition Assistant Standard Edition 5.5/" "Advanced Email Extractor PRO/" "AdultPDF/" "Adobe/" "../" "./")
+
+ ("c:/Program Files (x86)/emacs-24.3-bin-i386/" (21524 31279 0 0) "emacs-24.3.bak/" "emacs-24.3/" "Emacs/" "../" "./")
+
+ ("c:/Program Files (x86)/emacs-24.3-bin-i386/emacs-24.3/" (21524 36387 0 0) "var/" "site-lisp/" "README.W32" "README" "lisp/" "leim/" "info/" "etc/" "doc/" "COPYING" "BUGS" "bin/" "../" "./")
+
+ ("c:/Program Files (x86)/emacs-24.3-bin-i386/emacs-24.3/bin/" (21524 30715 0 0) "runemacs.exe" "profile.exe" "movemail.exe" "libXpm.dll" "hexl.exe" "etags.exe" "emacsclientw.exe" "emacsclient.exe" "emacs.exe" "ebrowse.exe" "ddeclient.exe" "ctags.exe" "COPYING" "cmdproxy.exe" "addpm.exe" "../" "./")
+
+ ("c:/.emacs.d/" (21527 42834 0 0) "yasnippet/" "web-beautify/" "undo-tree/" "skewer-mode-master/" "simple-httpd/" "js2-mode/" "impatient-mode/" "htmlize/" "fgh/" "elpa/" "CopyLineIfNoSelectAlsoCut/" "auto-save-list/" "auto-complete/" "ac-comphist.dat" "../" "./")
+
+ ("c:/.emacs.d/CopyLineIfNoSelectAlsoCut/" (21527 42834 0 0) "file.el" "../" "./")
+
+ ("c:/Users/anouarattn/Dropbox/project/blog/EdgeReflowProject_export/" (21527 40203 0 0) "script.js~" "script.js" "post.html" "post.css" "index.html~" "index.html" "index.css~" "index.css" "img/" "font/" "css/" "boilerplate.css" ".idea/" "#script.js#" "#index.html#" "../" "./")
+
+ ("c:/Users/" (21519 4889 0 0) "rbt/" "Public/" "ppp1/" "pc1/" "HomeGroupUser$/" "Guest/" "desktop.ini" "Default User/" "Default/" "anouarattn/" "All Users/" "Administrator/" ".mmm/" "../" "./")
+
+ ("c:/Users/anouarattn/" (21522 28882 0 0) "~/" "_viminfo" "yunio/" "workspace1/" "workspace/" "WireframeSketcher/" "Videos/" "untitled/" "Templates/" "Start Menu/" "springmvc1/" "springdemo3/" "springdemo2/" "springdemo/" "spring-framework-4.0.6.RELEASE/" "Snapshots/" "SendTo/" "Searches/" "SciTE.session" "Saved Games/" "Recent/" "PUTTY.RND" "pslog.txt" "PrintHood/" "Pictures/" "passwd" "Oracle/" "ntuser.pol" "ntuser.ini" "NTUSER.DAT{016888bd-6c6f-11de-8d1d-001e0bcde3ec}.TMContainer00000000000000000002.regtrans-ms" "NTUSER.DAT{016888bd-6c6f-11de-8d1d-001e0bcde3ec}.TMContainer00000000000000000001.regtrans-ms" "NTUSER.DAT{016888bd-6c6f-11de-8d1d-001e0bcde3ec}.TM.blf" "ntuser.dat.LOG2" "ntuser.dat.LOG1" "NTUSER.DAT" "node_modules/" "NetHood/" "My Documents/" "mvn/" "Music/" "mavenjavaee/" "lunaproject/" "Local Settings/" "Links/" "Intel/" "index.html" "gsview64.ini" "Google Drive/" "Favorites/" "Dropbox/" "Downloads/" "Documents/" "Desktop/" "DartEditor/" "dart/" "Creative Cloud Files/" "Cookies/" "Contacts/" "commons-logging-1.2/" "ClionProjects/" "Cisco Packet Tracer 6.0.1/" "auto-complete-1.3.1/" "Application Data/" "AppData/" "apache-log4j-1.2.17/" "anouarattn - Shortcut.lnk" "anouarattn - Shortcut (2).lnk" ".yjp/" ".WebStorm8/" ".WebIde70/" ".ssh.bak/" ".packettracer" ".objectdb/" ".nbi/" ".mongorc.js" ".m2/" ".jmc/" ".IntelliJIdea13/" ".HelloNzb/" ".gitconfig" ".gem/" ".emacs.d/" ".dbshell" ".dartium/" ".config/" ".clion10/" ".atom/" ".appwork/" ".android/" "../" "./")
+
+ ("c:/Users/anouarattn/Dropbox/" (21516 36188 0 0) "workspace/" "web dev/" "urbanisme-urbanisation.pps" "Uae_grunge_flag_by_al_zoro-d4avhxm.png" "TPJDBC.zip" "TP XML Facturation V1.pdf" "TP Threads et Sockets.pdf" "tools/" "Screenshots/" "SAM_1400.JPG" "SAM_1398.JPG" "s3.zip" "s2.zip" "s1.zip" "rmi.zip" "rapport.zip" "rapport.pdf" "rapport.doc" "putty_2.zip" "Public/" "project/" "pres.pptx" "pass.txt~" "pass.txt" "oracle_config/" "nasm/" "mokhaym/" "Modules/" "Markov.pdf" "jtnt-mindmap (1).png" "intellijworks/" "intellijprojects/" "info/" "horizental-vertical.jpg" "epub/" "eclipseprojet/" "desktop.ini" "cv4.pdf" "cv2.pdf" "contrl/" "concours Master SID 2013.pdf" "concourat/" "Capture.PNG" "Camera Uploads/" "c++/" "books/" "america/" "2014-03-22 17.00.34.jpg" "2014-03-15 17.30.15.jpg" ".dropbox.cache/" ".dropbox" ".docpad.cson" ".cache_data/" "../" "./")
+
+ ("c:/Users/anouarattn/Dropbox/project/" (21524 44515 0 0) "الحركات الإنفصالية في إفريقيا/" "xml_tp1/" "workspace-eclipse/" "web-desktop/" "tp_jdbc_youssfi/" "test/" "subtitleviewer/" "subtitle viewer/" "stage_pfe_pole/" "rapport_thread_java/" "rapport_qbadoch/" "rapport_java_cinema/" "rapport_entrepro/" "qbadoch_compilation/" "proxyserver/" "projet_test_bootstrap/" "projet_système_info/" "project_isp_method/" "project-X/" "phonecat/" "pacman/" "objectdb/" "myportfolio/" "mycv/" "moncv/" "master sid informations/" "mangouniv&mangodbForJavaDev/" "macaw/" "latexslider/" "KM/" "jquery/" "javaexam/" "javaastuce/" "gestion_de_projet/" "gameengine/" "examjavaee/" "edx&introLinux/" "edgereflow/" "edgeanimate/" "dev/" "c_project/" "cv/" "coursra&cryptographyI/" "coursra&computer software interface/" "correlation_projet/" "correlation/" "compression_cours_project/" "colored_grid_codechef_problem/" "blog/" "../" "./")
+
+ ("c:/Users/anouarattn/Dropbox/project/blog/" (21525 51926 0 0) "singlePost.psd" "README.md" "home.psd" "flo.js" "EdgeReflowProject_export/" "EdgeReflowProject/" ".git/" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
