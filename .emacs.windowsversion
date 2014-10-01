@@ -27,7 +27,7 @@
 ;;var load-path : path container
 ;; To add a single directory to the front of your ‘load-path’ (add-to-list 'load-path "~/.emacs.d/lisp/")
 
-
+ 
 ;;; auto-complete package
 (add-to-list 'load-path "/.emacs.d/auto-complete/")
 (require 'auto-complete-config)
@@ -105,16 +105,6 @@
 
 
 
-
-;;skewer-mode Live web development in Emacs
-(add-to-list 'load-path "/.emacs.d/skewer-mode-master/")
-(require 'skewer-mode)
-
-
-
-;; impatient mode
-(add-to-list 'load-path "~/.emacs.d/impatient-mode")
-(require 'impatient-mode)
 
 ;; hide GNU emacs message
 (setq inhibit-startup-message t)
@@ -199,12 +189,17 @@ When `universal-argument' is called first, cut whole buffer (but respect `narrow
 (global-set-key (kbd "C-v") 'yank) ; paste
 
 ;;electric-pair-mode. When on, typing any left bracket automatically insert the right matching bracket.
-(electric-pair-mode t)
+;(electric-pair-mode t)
 ;; make electric-pair-mode work on more brackets
-(setq electric-pair-pairs '(
-                            (?\" . ?\")
-                            (?\{ . ?\})
-                            ) )
+;(setq electric-pair-pairs '(
+ ;                           (?\" . ?\")
+  ;                          (?\{ . ?\})
+   ;                         ) )
+
+; smartparens   : auto close brackets
+(add-to-list 'load-path "/.emacs.d/smartparens")
+(require 'smartparens-config)
+
 
 
 ;; have matching parenthesis highlighted
@@ -231,7 +226,7 @@ When `universal-argument' is called first, cut whole buffer (but respect `narrow
     (interactive) (revert-buffer t t))
 (global-set-key (kbd "<f5>") 'revert-buffer-no-confirm)
 
-					; web mode
+; web-mode
 (add-to-list 'load-path "/.emacs.d/web-mode")
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
@@ -242,11 +237,9 @@ When `universal-argument' is called first, cut whole buffer (but respect `narrow
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
-
-
-
-
+;(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
+;(setq web-mode-ac-sources-alist '(("css" . (ac-source-css-property)) ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
+ ;(add-to-list 'ac-modes 'web-mode)
 
 ;save on loss of input focus
 ;(defun save-all ()
@@ -254,7 +247,7 @@ When `universal-argument' is called first, cut whole buffer (but respect `narrow
 ;    (save-some-buffers t))
 ;  (add-hook 'focus-out-hook 'save-all)
 
-;; shift + arrow keys t oswitch between visible buffers
+;; shift + arrow keys to switch between visible buffers
 (require 'windmove)
 (windmove-default-keybindings)
 
@@ -272,3 +265,127 @@ When `universal-argument' is called first, cut whole buffer (but respect `narrow
   (when buffer-file-name (save-buffer)))
 (defadvice windmove-right (before other-window-now activate)
   (when buffer-file-name (save-buffer)))
+
+; flx-ido 
+;(add-to-list 'load-path "/.emacs.d/flx-ido")
+;(require 'flx-ido)
+;(flx-ido)
+
+
+; ido-vertical-mode
+(add-to-list 'load-path "/.emacs.d/ido-vertical-mode")
+(require 'ido-vertical-mode)
+(ido-vertical-mode)
+
+
+; ido for M-x with smex
+(add-to-list 'load-path "/.emacs.d/smex")
+(require 'smex) ; Not needed if you use package.el
+(smex-initialize) ; Can be omitted. This might cause a (minimal) delay
+                  ; when Smex is auto-initialized on its first run.
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+; ido for others 
+(add-to-list 'load-path "/.emacs.d/ido-ubiquitous")
+(require 'ido-ubiquitous)
+
+
+;(add-to-list 'load-path "~/.emacs.d/evil")  
+;(require 'evil)  
+;(evil-mode 1)
+
+; define your own next-user-buffer that skips emacs's buffers, and you might define next-emacs-buffer that cycles thru just the emacs's buffers.
+(defun next-user-buffer ()
+  "Switch to the next user buffer.
+User buffers are those whose name does not start with *."
+  (interactive)
+  (next-buffer)
+  (let ((i 0))
+    (while (and (string-match "^*" (buffer-name)) (< i 50))
+      (setq i (1+ i)) (next-buffer) )))
+
+(defun previous-user-buffer ()
+  "Switch to the previous user buffer.
+User buffers are those whose name does not start with *."
+  (interactive)
+  (previous-buffer)
+  (let ((i 0))
+    (while (and (string-match "^*" (buffer-name)) (< i 50))
+      (setq i (1+ i)) (previous-buffer) )))
+
+(defun next-emacs-buffer ()
+  "Switch to the next emacs buffer.
+Emacs buffers are those whose name starts with *."
+  (interactive)
+  (next-buffer)
+  (let ((i 0))
+    (while (and (not (string-match "^*" (buffer-name))) (< i 50))
+      (setq i (1+ i)) (next-buffer) )))
+
+(defun previous-emacs-buffer ()
+  "Switch to the previous emacs buffer.
+Emacs buffers are those whose name starts with *."
+  (interactive)
+  (previous-buffer)
+  (let ((i 0))
+    (while (and (not (string-match "^*" (buffer-name))) (< i 50))
+      (setq i (1+ i)) (previous-buffer) ))) 
+;; sample easy keys
+
+
+
+(global-set-key (kbd "<C-prior>") 'previous-user-buffer) ; Ctrl+PageUp
+(global-set-key (kbd "<C-next>") 'next-user-buffer) ; Ctrl+PageDown
+(global-set-key (kbd "<C-S-prior>") 'previous-emacs-buffer) ; Ctrl+Shift+PageUp
+(global-set-key (kbd "<C-S-next>") 'next-emacs-buffer) ; Ctrl+Shift+PageDown
+
+;; neotree
+(add-to-list 'load-path "/.emacs.d/neotree")
+(require 'neotree)
+(global-set-key [f9] 'neotree-toggle)
+
+; move text 
+(add-to-list 'load-path "/.emacs.d/move-text-20140307.1644")
+(require 'move-text)
+(move-text-default-bindings)
+
+; anzu : show search number of match
+(add-to-list 'load-path "/.emacs.d/anzu")
+(require 'anzu)
+(global-anzu-mode +1)
+(global-set-key (kbd "M-%") 'anzu-query-replace)
+(global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)
+(set-face-attribute 'anzu-mode-line nil
+                    :foreground "DarkSlateGray" :weight 'bold)
+
+; css completion
+(add-to-list 'load-path "/.emacs.d/csscompletion")
+(require 'mon-css-complete)
+
+;yafolding tool 
+(add-to-list 'load-path "/.emacs.d/yafolding")
+(require 'yafolding)
+(add-hook 'prog-mode-hook
+          (lambda () (yafolding-mode)))
+(global-set-key (kbd "<f6>") 'yafolding-toggle-element)
+
+
+;ido-at-point 
+;(add-to-list 'load-path "/.emacs.d/ido-at-point")
+;(require 'ido-at-point)
+
+; css check 
+;(add-to-list 'load-path "/.emacs.d/csscheck")
+;(require 'mon-css-check)
+
+; helm 
+;(add-to-list 'load-path "/.emacs/helm")
+;(require 'helm-config)
+
+
+; helm-css 
+;(add-to-list 'load-path "/.emacs.d/helmcssscss")
+;(require 'helm-css-scss)
